@@ -1,5 +1,5 @@
 # 공공임대주택 정보 안내 도우미 – 찾아줘 홈즈 🏠
-<img src="/홈즈.png" width="800" height="500">
+<img src="/홈즈.png" width="800" height="450">
 
 ## 📌 프로젝트 개요
 본 프로젝트는 공공임대주택 신청 공고문을 활용해 사용자가 손쉽게 원하는 조건의 주택 정보를 찾을 수 있도록 하는 AI 기반의 정보 안내 시스템입니다.<br/>
@@ -9,7 +9,7 @@ Azure Document Intelligence를 활용한 데이터 전처리와, LLM 기반 RAG(
 
 ## 🛠️ 기술 스택
 <img src="https://img.shields.io/badge/Azure OpenAI-3050FF?style=flat-square&logo=OpenAI&logoColor=white"/> <img src="https://img.shields.io/badge/Azure Document Intelligence-3050FF?style=flat-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Azure AI Search-3050FF?style=flat-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Azure Virtual Machine-3050FF?style=flat-square&logo=&logoColor=white"/><br/>
-<img src="https://img.shields.io/badge/flask-000000?style=flat-square&logo=flask&logoColor=white"/> <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white"/> <img src="https://img.shields.io/badge/ngrok-1F1E37?style=flat-square&logo=ngrok&logoColor=white"/> <img src="https://img.shields.io/badge/Kakaotalk-FFCD00?style=flat-square&logo=kakaotalk&logoColor=white"/>
+<img src="https://img.shields.io/badge/flask-000000?style=flat-square&logo=flask&logoColor=white"/> <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white"/> <img src="https://img.shields.io/badge/ngrok-1F1E37?style=flat-square&logo=ngrok&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white"/> <img src="https://img.shields.io/badge/Kakaotalk-FFCD00?style=flat-square&logo=kakaotalk&logoColor=white"/>
 
 - Azure OpenAI: embedding 모델을 통한 벡터화 및 GPT-4 기반 언어 모델을 사용해 자연어 응답 생성
 - Azure Document Intelligence Layout : PDF을 Markdown 파일로 변환
@@ -24,12 +24,12 @@ Azure Document Intelligence를 활용한 데이터 전처리와, LLM 기반 RAG(
 
 ## 🗂️ 프로젝트 구조
 ### 활용 데이터셋 : LH, GH, SH 공공주택 모집공고 데이터(.pdf)
-- data_preprocessing/main.py/ : PDF -> .md 변환 및 데이터 전처리
-- 클라우드.ipynb/ : 청크변환, 임베딩 및 AI search 업로드
-- QR.py/ : query rewrite
-- RAG.py/ : LLM 기반 RAG를 통한 지정된 공고문의 정보 추출
-- personal.py/ : LLM 기반 RAG(none filter)를 통한 사용자 기반 공고문 추천
-- app.py/: 시스템의 메인 실행(Flask)
+- `data_preprocessing/main.py`: PDF → Markdown 변환 및 전처리
+- `클라우드.ipynb`: 청크 분할, 임베딩 및 Azure AI Search 업로드
+- `QR.py`: Query Rewrite
+- `RAG.py`: 필터 기반 RAG 응답 생성
+- `personal.py`: 사용자 조건 기반 공고 추천 (None filter RAG)
+- `app.py`: 메인 Flask 실행 서버
 
 ## 🎯 주요 기능
 

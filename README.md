@@ -1,27 +1,45 @@
-# Azure Custom Vision을 사용한 운전자 졸음 감지 시스템
-## 프로젝트 개요
+# 공공임대주택 정보 안내 도우미 – 찾아줘 홈즈 🏠
+## 📌 프로젝트 개요
 본 프로젝트는 공공임대주택 신청 공고문을 활용해 사용자가 손쉽게 원하는 조건의 주택 정보를 찾을 수 있도록 하는 AI 기반의 정보 안내 시스템입니다.
 주요 기술로는 Azure의 DI를 통한 데이터 전처리 과정 및 LLM 기반 RAG(Retrieval-Augmented Generation) 시스템과 카카오톡 챗봇 인터페이스가 결합되어 있으며,
 사용자의 지역, 조건, 상황에 맞는 주택 공고문 정보를 자연어로 응답합니다.
 공공 데이터를 활용한 챗봇 서비스로, 주거 정보 접근성 향상을 목표로 합니다.
-## 기술 스택
 
+## 🛠️ 기술 스택
+<img src="https://img.shields.io/badge/Azure OpenAI-3050FF?style=flat-square&logo=OpenAI&logoColor=white"/> <img src="https://img.shields.io/badge/Azure Document Intelligence-3050FF?style=flat-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Azure Virtual Machine-3050FF?style=flat-square&logo=&logoColor=white"/><br/>
+<img src="https://img.shields.io/badge/flask-000000?style=flat-square&logo=flask&logoColor=white"/> <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white"/> <img src="https://img.shields.io/badge/ngrok-1F1E37?style=flat-square&logo=ngrok&logoColor=white"/> <img src="https://img.shields.io/badge/Kakaotalk-FFCD00?style=flat-square&logo=kakaotalk&logoColor=white"/>
 
-<img src="https://img.shields.io/badge/Azure-3050FF?style=flat-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Custom Vision-3050FF?style=flat-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/Gradio-F97316?style=flat-square&logo=Gradio&logoColor=white"/> <img src="https://img.shields.io/badge/Hugging Face-FFD21E?style=flat-square&logo=huggingface&logoColor=white"/>
-
-- Azure Custom Vision: 이미지 분류와 객체 감지에 사용됩니다.
-- Python: 후처리 및 모델 훈련에 사용됩니다.
-- Gradio: 인터페이스 개발에 사용하여 사용자가 쉽게 상호 작용할 수 있도록 합니다.
+- Azure OpenAI: embedding 모델을 통한 벡터화 및 GPT-4 기반 언어 모델을 사용해 자연어 응답 생성 
+- Azure AI Search: 벡터 기반 유사도 검색으로 관련 공고문 청크를 반환
+- Azure VM : Python 기반 Flask 서버를 가상머신에서 상시 운영
+- Flask : 로컬 서버 생성
+- Ngrok : 로컬/VM 서버를 카카오톡 챗봇에서 접근 가능하도록 터널링
+- LangChain: 텍스트 분할, 임베딩 및 RAG 파이프라인 구성
+- Python: 전체 백엔드 및 데이터 전처리 로직 작성
+- Kakao i 오픈빌더: 사용자 인터페이스 챗봇 구성
 <br/>
 
-## 프로젝트 구조
-- 활용 데이터셋 : [운전자 및 탑승자 상태 및 이상행동 모니터링](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=651)
-- data_preprocessing.ipynb/: 라벨링 데이터 정제
-- 평균KSS값추출.ipynb/ : 파이썬 후처리
-- 실시간디텍팅.ipynb/ : 디텍션 모델 테스트
-- newUI.py/: 시스템의 메인 실행
-## 주요 기능
-- 실시간 졸음 감지: 카메라를 통해 운전자의 얼굴을 실시간으로 분석하고, 졸음 징후를 감지합니다.
-- 경고 시스템: 졸음 징후가 감지되면 경고음을 발생시켜 운전자가 즉시 대응할 수 있도록 합니다.
+## 🗂️ 프로젝트 구조
+- 활용 데이터셋 : LH, GH, SH 공공주택 모집공고 데이터(.pdf)
+- data_preprocessing/main.py/ : PDF -> .md 변환 및 데이터 전처리
+- 클라우드.ipynb/ : 청크변환, 임베딩 및 AI search 업로드
+- QR.py/ : query rewrite
+- RAG.py/ : LLM 기반 RAG를 통한 지정된 공고문의 정보 추출
+- personal.py/ : LLM 기반 RAG(none filter)를 통한 사용자 기반 공고문 추천
+- app.py/: 시스템의 메인 실행(Flask)
+
+## 🎯 주요 기능
+공고문 기반 질의응답:
+사용자가 원하는 주택 조건을 입력하면 관련 공고의 세부 내용을 추출해 자연어로 답변.
+
+지역 기반 검색:
+“서울 강남 지역의 청년 전세임대 있나요?” → 해당 공고가 있을 경우 연결
+
+사용자 맞춤형 응답:
+카카오톡 챗봇에서 사용자 응답을 단계별로 받아서 조건에 맞는 공고문 자동 탐색
+
+PDF 자동 처리 및 AI 벡터 인덱싱:
+공공데이터 포털의 PDF 파일을 자동 수집, 텍스트 변환, 분할 및 벡터화하여 질의 가능하게 함
+
 
 ### 자세한 내용은 [6팀_취합_최종.PDF](https://github.com/hongwon1031/MS_AI_Project_1/blob/main/6%ED%8C%80_%EC%B7%A8%ED%95%A9_%EC%B5%9C%EC%A2%85.pdf) 참고

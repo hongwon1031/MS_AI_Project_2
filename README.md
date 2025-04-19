@@ -43,4 +43,4 @@ PDF 자동 처리 및 AI 벡터 인덱싱:
 공고문 PDF파일 전처리, 청크분할, 임베딩, 업로드까지의 과정을 자동화
 
 
-### 자세한 내용은 [6팀_취합_최종.PDF](https://github.com/hongwon1031/MS_AI_project_2/blob/main/%5B%EB%B3%B5%EB%8D%95%EB%B0%A97%5D%20%EA%B3%B5%EA%B3%B5%EC%9E%84%EB%8C%80%EC%A3%BC%ED%83%9D%20%EC%A0%95%EB%B3%B4%20%EC%95%88%EB%82%B4%20%EB%8F%84%EC%9A%B0%EB%AF%B8_%EC%B0%BE%EC%95%84%EC%A4%98%20%ED%99%88%EC%A6%88_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C_%EC%B5%9C%EC%A2%85.pdf) 참고
+### 자세한 내용은 [[복덕방7]발표.PDF](https://github.com/hongwon1031/MS_AI_project_2/blob/main/%5B%EB%B3%B5%EB%8D%95%EB%B0%A97%5D%EB%B0%9C%ED%91%9C.pdf) 참고

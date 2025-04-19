@@ -1,9 +1,9 @@
 # 공공임대주택 정보 안내 도우미 – 찾아줘 홈즈 🏠
 ## 📌 프로젝트 개요
-본 프로젝트는 공공임대주택 신청 공고문을 활용해 사용자가 손쉽게 원하는 조건의 주택 정보를 찾을 수 있도록 하는 AI 기반의 정보 안내 시스템입니다.
-주요 기술로는 Azure의 DI를 통한 데이터 전처리 과정 및 LLM 기반 RAG(Retrieval-Augmented Generation) 시스템과 카카오톡 챗봇 인터페이스가 결합되어 있으며,
-사용자의 지역, 조건, 상황에 맞는 주택 공고문 정보를 자연어로 응답합니다.
-공공 데이터를 활용한 챗봇 서비스로, 주거 정보 접근성 향상을 목표로 합니다.
+본 프로젝트는 공공임대주택 신청 공고문을 활용해 사용자가 손쉽게 원하는 조건의 주택 정보를 찾을 수 있도록 하는 AI 기반의 정보 안내 시스템입니다.<br/>
+Azure Document Intelligence를 활용한 데이터 전처리와, LLM 기반 RAG(Retrieval-Augmented Generation) 시스템, 카카오톡 챗봇 인터페이스가 결합된 구조로 구성되어 있습니다.<br/>
+또한, 본 시스템은 Python Flask 기반 서버를 Azure Virtual Machine 상에 구축하여 상시 운영되며, 외부 접근을 위해 Ngrok 터널링을 활용해 카카오톡 챗봇과 안정적으로 연동되도록 구성되어 있습니다.<br/>
+이를 통해 최종적으로 선택된 공고문 내 세부 정보를 사용자의 질의에 따라 탐색하여 지엽적인 내용까지도 정확하게 응답할 수 있습니다.<br/>
 
 ## 🛠️ 기술 스택
 <img src="https://img.shields.io/badge/Azure OpenAI-3050FF?style=flat-square&logo=OpenAI&logoColor=white"/> <img src="https://img.shields.io/badge/Azure Document Intelligence-3050FF?style=flat-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Azure Virtual Machine-3050FF?style=flat-square&logo=&logoColor=white"/><br/>
@@ -20,7 +20,7 @@
 <br/>
 
 ## 🗂️ 프로젝트 구조
-- 활용 데이터셋 : LH, GH, SH 공공주택 모집공고 데이터(.pdf)
+### 활용 데이터셋 : LH, GH, SH 공공주택 모집공고 데이터(.pdf)
 - data_preprocessing/main.py/ : PDF -> .md 변환 및 데이터 전처리
 - 클라우드.ipynb/ : 청크변환, 임베딩 및 AI search 업로드
 - QR.py/ : query rewrite
@@ -29,17 +29,15 @@
 - app.py/: 시스템의 메인 실행(Flask)
 
 ## 🎯 주요 기능
-공고문 기반 질의응답:
-사용자가 원하는 주택 조건을 입력하면 관련 공고의 세부 내용을 추출해 자연어로 답변.
 
-지역 기반 검색:
-“서울 강남 지역의 청년 전세임대 있나요?” → 해당 공고가 있을 경우 연결
+공고문 기반 질의응답:
+카카오톡 버튼 상호작용을 통한 공고문 선택 → 해당 공고문에 대한 질문 → RAG기반 응답 생성
 
 사용자 맞춤형 응답:
-카카오톡 챗봇에서 사용자 응답을 단계별로 받아서 조건에 맞는 공고문 자동 탐색
+카카오톡 챗봇에서 사용자의 조건 및 상황을 단계별로 받아서 조건에 맞는 공고문 자동 탐색
 
 PDF 자동 처리 및 AI 벡터 인덱싱:
-공공데이터 포털의 PDF 파일을 자동 수집, 텍스트 변환, 분할 및 벡터화하여 질의 가능하게 함
+공고문 PDF파일 전처리, 청크분할, 임베딩, 업로드까지의 과정을 자동화
 
 
 ### 자세한 내용은 [6팀_취합_최종.PDF](https://github.com/hongwon1031/MS_AI_Project_1/blob/main/6%ED%8C%80_%EC%B7%A8%ED%95%A9_%EC%B5%9C%EC%A2%85.pdf) 참고

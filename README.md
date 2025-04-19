@@ -1,4 +1,6 @@
 # 공공임대주택 정보 안내 도우미 – 찾아줘 홈즈 🏠
+<img src="/홈즈.png" width="800" height="500">
+
 ## 📌 프로젝트 개요
 본 프로젝트는 공공임대주택 신청 공고문을 활용해 사용자가 손쉽게 원하는 조건의 주택 정보를 찾을 수 있도록 하는 AI 기반의 정보 안내 시스템입니다.<br/>
 Azure Document Intelligence를 활용한 데이터 전처리와, LLM 기반 RAG(Retrieval-Augmented Generation) 시스템, 카카오톡 챗봇 인터페이스가 결합된 구조로 구성되어 있습니다.<br/>
@@ -6,10 +8,11 @@ Azure Document Intelligence를 활용한 데이터 전처리와, LLM 기반 RAG(
 이를 통해 최종적으로 선택된 공고문 내 세부 정보를 사용자의 질의에 따라 탐색하여 지엽적인 내용까지도 정확하게 응답할 수 있습니다.<br/>
 
 ## 🛠️ 기술 스택
-<img src="https://img.shields.io/badge/Azure OpenAI-3050FF?style=flat-square&logo=OpenAI&logoColor=white"/> <img src="https://img.shields.io/badge/Azure Document Intelligence-3050FF?style=flat-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Azure Virtual Machine-3050FF?style=flat-square&logo=&logoColor=white"/><br/>
+<img src="https://img.shields.io/badge/Azure OpenAI-3050FF?style=flat-square&logo=OpenAI&logoColor=white"/> <img src="https://img.shields.io/badge/Azure Document Intelligence-3050FF?style=flat-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Azure AI Search-3050FF?style=flat-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Azure Virtual Machine-3050FF?style=flat-square&logo=&logoColor=white"/><br/>
 <img src="https://img.shields.io/badge/flask-000000?style=flat-square&logo=flask&logoColor=white"/> <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white"/> <img src="https://img.shields.io/badge/ngrok-1F1E37?style=flat-square&logo=ngrok&logoColor=white"/> <img src="https://img.shields.io/badge/Kakaotalk-FFCD00?style=flat-square&logo=kakaotalk&logoColor=white"/>
 
-- Azure OpenAI: embedding 모델을 통한 벡터화 및 GPT-4 기반 언어 모델을 사용해 자연어 응답 생성 
+- Azure OpenAI: embedding 모델을 통한 벡터화 및 GPT-4 기반 언어 모델을 사용해 자연어 응답 생성
+- Azure Document Intelligence Layout : PDF을 Markdown 파일로 변환
 - Azure AI Search: 벡터 기반 유사도 검색으로 관련 공고문 청크를 반환
 - Azure VM : Python 기반 Flask 서버를 가상머신에서 상시 운영
 - Flask : 로컬 서버 생성
@@ -40,4 +43,4 @@ PDF 자동 처리 및 AI 벡터 인덱싱:
 공고문 PDF파일 전처리, 청크분할, 임베딩, 업로드까지의 과정을 자동화
 
 
-### 자세한 내용은 [6팀_취합_최종.PDF](https://github.com/hongwon1031/MS_AI_Project_1/blob/main/6%ED%8C%80_%EC%B7%A8%ED%95%A9_%EC%B5%9C%EC%A2%85.pdf) 참고
+### 자세한 내용은 [6팀_취합_최종.PDF](https://github.com/hongwon1031/MS_AI_project_2/blob/main/%5B%EB%B3%B5%EB%8D%95%EB%B0%A97%5D%20%EA%B3%B5%EA%B3%B5%EC%9E%84%EB%8C%80%EC%A3%BC%ED%83%9D%20%EC%A0%95%EB%B3%B4%20%EC%95%88%EB%82%B4%20%EB%8F%84%EC%9A%B0%EB%AF%B8_%EC%B0%BE%EC%95%84%EC%A4%98%20%ED%99%88%EC%A6%88_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C_%EC%B5%9C%EC%A2%85.pdf) 참고

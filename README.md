@@ -39,7 +39,7 @@
 > **데이터 업로드 자동화** : 공고문 PDF파일 전처리, 청크분할, 임베딩, 업로드까지의 과정을 자동화<br/>
 
 ### 🎥 시연영상 
-[시연영상.mp4](https://github.com/hongwon1031/MS_AI_project_2/blob/main/%EC%8B%9C%EC%97%B0%EC%98%81%EC%83%81.mp4)
+[홍보영상.mp4](https://github.com/hongwon1031/MS_AI_project_2/blob/main/%EC%8B%9C%EC%97%B0%EC%98%81%EC%83%81.mp4)
 ### 자세한 내용은 [[복덕방7]발표.PDF](https://github.com/hongwon1031/MS_AI_project_2/blob/main/%5B%EB%B3%B5%EB%8D%95%EB%B0%A97%5D%EB%B0%9C%ED%91%9C.pdf) 참고
 ### 🐶 How to use?
 ~~[카카오톡 채널](http://pf.kakao.com/_QfZwn) 혹은 카카오톡에서 '찾아줘! 홈즈' 검색~~

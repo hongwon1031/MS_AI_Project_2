@@ -1,11 +1,23 @@
 # 공공임대주택 정보 안내 도우미 – 찾아줘 홈즈 🏠
-<img src="/홈즈.png" width="800" height="450">
+<img src="./images/홈즈.png" width="800" height="450">
 
 ## 📌 프로젝트 개요
 본 프로젝트는 공공임대주택 신청 공고문을 활용해 사용자가 원하는 조건의 주택 정보를 찾을 수 있도록 하는 AI 기반의 정보 안내 시스템입니다.<br/>
 **Azure Document Intelligence**를 활용한 데이터 전처리와, LLM 기반 **RAG(Retrieval-Augmented Generation)** 시스템, **카카오톡 챗봇** 인터페이스가 결합된 구조로 구성되어 있습니다.<br/>
 또한, 본 시스템은 Python Flask 기반 서버를 **Azure Virtual Machine** 상에 구축하여 상시 운영되며, 외부 접근을 위해 Ngrok 터널링을 활용해 카카오톡 챗봇과 안정적으로 연동되도록 구성되어 있습니다.<br/>
 이를 통해 최종적으로 선택된 공고문 내 세부 정보를 사용자의 질의에 따라 탐색하여 지엽적인 내용까지도 정확하게 응답할 수 있습니다.<br/>
+
+## 👀 How does it work?
+
+<div align="center">
+  <img src="./images/demo1.gif" width="45%" style="margin-right: 10px;" />
+  <img src="./images/demo2.gif" width="45%" />
+</div>
+
+## ⚙️ Architecture
+
+<img src="./images/architecture.png" style="width: 100%; height: auto;" />
+
 
 ## 🛠️ 기술 스택
 <img src="https://img.shields.io/badge/Azure OpenAI-0078D4?style=flat-square&logo=OpenAI&logoColor=white"/> <img src="https://img.shields.io/badge/Azure Document Intelligence-0078D4?style=flat-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Azure AI Search-0078D4?style=flat-square&logo=&logoColor=white"/> <img src="https://img.shields.io/badge/Azure Virtual Machine-0078D4?style=flat-square&logo=&logoColor=white"/> <br/><img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white"/>
